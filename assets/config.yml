@@ -1,0 +1,122 @@
+# Hide and Seek game settings.
+# Changing these MAY require the game to be restarted in order to take effect.
+game settings:
+    # How long is the duration of the intermission? (Default: 30s)
+    intermission duration: 30s
+    # How much time has to be remaining before we
+    # warn players the game is about to start? (Default: 10s)
+    intermission warning: 10s
+    
+    # Whether future seekers should be allowed to fly during intermission/hiding.
+    # BUG: The previous hider will lose flight momentarily for some reason.
+    # I can't be asked to fix it, not sorry.
+    intermission allow flight: true
+    
+    # How long until the hider must reconnect before we
+    # force-end the game?
+    hider disconnect rejoin timer: 60s
+    
+    # Prevents seeker's food level from going down during these game states.
+    # The hider will always not lose hunger.
+    prevent hunger on state:
+        # If a game has not been started. (Default: true)
+        NOT_STARTED: true
+        # While the hider is choosing a hiding spot. (Default: true)
+        HIDING: true
+        # While the seekers are actively looking for the hider. (Default: false)
+        SEEKING: false
+        # Time after finding the hider and choosing the next hider. (Default: true)
+        INTERMISSION: true
+
+    prevent damage on state:
+        # If a game has not been started. (Default: true)
+        NOT_STARTED: true
+        # While the hider is choosing a hiding spot. (Default: true)
+        HIDING: true
+        # While the seekers are actively looking for the hider. (Default: false)
+        SEEKING: false
+        # Time after finding the hider and choosing the next hider. (Default: true)
+        INTERMISSION: true
+    
+    hiding requirements:
+        # How much sky light is required for a hiding spot to be valid (Default: 8)
+        minimum sky light: 8
+        # Sea level for this world (Default: 63)
+        minimum y level: 63
+    hiding:
+        # How fast the player should fly while finding a hiding spot.
+        # (Defaults to 0.3, Vanilla fly speed is 0.1)
+        fly speed: 0.3
+        # How fast the player should walk/run while finding a hiding spot.
+        # (Defaults to 0.24, Vanilla walk speed is 0.2)
+        walk speed: 0.24
+        
+        # Whether the hider should be partially invisible.
+        # Disabling this will make the hider entirely visible while hidden.
+        partial invisibility: true
+    seeking:
+        # Cooldown for using the teleport item. (Default: 10s)
+        # This will also be used to return the item back
+        # to a rejoining seeker.
+        teleport item cooldown: 10s
+        # Cooldown to ask another question.
+        question cooldown: 20s
+        # Cooldown if a previously asked question is asked again.
+        same question cooldown: 45s
+questions:
+    columns: 5
+    # This is a list of all the questions that the seekers can ask.
+    # This is filled from left -> right, top to bottom.
+    # Every <column> questions, it'll break into a new row.
+    # The total number of questions in each row should be divisible by
+    # the amount of columns.
+    data:
+        zone_200:
+            short: <200 Blocks
+            long: Are you within 200 blocks of me?
+        east_west:
+            short: EAST or WEST?
+            long: Are you WEST or EAST of me?
+        same_block:
+            short: Same block?
+            long: Are you standing on the same block as me?
+        near_water:
+            short: Near water?
+            long: Are you near a source of water?
+        sun_visible:
+            short: Sky visible?
+            long: Is the sky visible above you?
+        # ------
+        zone_100:
+            short: <100 Blocks
+            long: Are you within 100 blocks of me?
+        north_south:
+            short: NORTH or SOUTH?
+            long: Are you NORTH or SOUTH of me?
+        same_biome:
+            short: Same biome?
+            long: Are you in the same biome as me?
+        near_lava:
+            short: Near lava?
+            long: Are you near a source of lava?
+        in_structure:
+            short: Inside structure?
+            long: Are you inside a structure?
+        # ------
+        zone_50:
+            short: <50 Blocks
+            long: Are you within 50 blocks of me?
+        higher_lower:
+            short: HIGHER or LOWER?
+            long: Is your altitude HIGHER or LOWER than mine?
+        same_animals:
+            short: Same animals?
+            long: Do you have the same animals around you?
+        near_snow:
+            short: Near snow?
+            long: Are you near some snow?
+        on_leaves:
+            short: On leaves?
+            long: Are you standing on leaves?
+        # ------
+        

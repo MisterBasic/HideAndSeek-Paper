@@ -1,0 +1,14 @@
+main: net.blixate.hideandseek.HideAndSeek
+name: HideAndSeek
+description: Hide and Seek Paper implementation.
+version: 1.0
+authors: [MisterBasic]
+api-version: '26.2'
+permissions:
+    hideandseek.command:
+        description: Permission for Hide and Seek's main command.
+        default: op
+commands:
+   hideandseek:
+        description: Main command for hide and seek.
+        usage: /hideandseek
