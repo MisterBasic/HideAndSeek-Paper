@@ -40,8 +40,6 @@ public class HideAndSeekEventListener implements Listener {
 	
 	@EventHandler
 	public void onJoin(PlayerJoinEvent e) {
-		e.joinMessage(Component.text("+ ").append(e.getPlayer().displayName()).color(NamedTextColor.GREEN));
-		
 		// make sure if they disconnect as a hider we allow them to rejoin properly
 		e.getPlayer().setWalkSpeed(0.2f);
 		e.getPlayer().setFlySpeed(0.1f);
@@ -57,8 +55,6 @@ public class HideAndSeekEventListener implements Listener {
 	
 	@EventHandler
 	public void onQuit(PlayerQuitEvent e) {
-		e.quitMessage(Component.text("- ").append(e.getPlayer().displayName()).color(NamedTextColor.RED));
-		
 		if(HideAndSeek.isPlaying(e.getPlayer())) {
 			
 			if(HideAndSeek.getGameState().getState() == State.HIDING) {
@@ -67,7 +63,6 @@ public class HideAndSeekEventListener implements Listener {
 					e.getPlayer().getInventory().clear();
 				}
 			}
-			
 			HideAndSeek.getGameState().disconnectPlayer(e.getPlayer());
 		}
 	}

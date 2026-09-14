@@ -35,8 +35,7 @@ public class HideAndSeek extends JavaPlugin {
 		Bukkit.getPluginManager().registerEvents(new ChallengeListener(), this);
 		Bukkit.getScheduler().runTaskTimer(this, new ServerLoop(), 0, 10);
 		this.getCommand("hideandseek").setExecutor(new HideAndSeekCommand());
-		// TODO: Comment this out so config stuff saves
-		//this.saveResource("config.yml", true);
+		this.saveResource("config.yml", false);
 		this.reloadConfig();
 		if(getConfig().contains("center location")) {
 			preferredCenterX = getConfig().getInt("center location.x");
